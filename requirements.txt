@@ -1,4 +1,2 @@
-streamlit
-chromadb
 langchain
-uuid
+langchain-community
