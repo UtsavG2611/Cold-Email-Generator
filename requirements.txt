@@ -1,6 +1,0 @@
-streamlit
-chromadb
-langchain
-langchain-community
-pysqlite3-binary
-uuid
