@@ -2,5 +2,5 @@ streamlit
 chromadb
 langchain
 langchain-community
-pysqlite3-binary==0.5.2
+pysqlite3-binary
 uuid
