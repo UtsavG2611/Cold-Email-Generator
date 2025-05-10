@@ -1,12 +1,6 @@
-# Patch for ChromaDB on Streamlit Cloud (SQLite issue)
-try:
-    import pysqlite3
-    import sys
-    sys.modules["sqlite3"] = sys.modules["pysqlite3"]
-except ImportError:
-    import sys
-    sys.stderr.write("pysqlite3-binary not installed. Please check requirements.txt\n")
-    raise
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 import streamlit as st
 from langchain_community.document_loaders import WebBaseLoader
 
