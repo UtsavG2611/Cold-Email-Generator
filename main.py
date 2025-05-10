@@ -1,14 +1,12 @@
-# Fix for sqlite3 compatibility on Streamlit Cloud
+# Patch for ChromaDB on Streamlit Cloud (SQLite issue)
 try:
     import pysqlite3
     import sys
     sys.modules["sqlite3"] = sys.modules["pysqlite3"]
 except ImportError:
-    raise RuntimeError(
-        "\033[91mYour system has an unsupported version of sqlite3.\033[0m\n"
-        "\033[94mPlease visit https://docs.trychroma.com/troubleshooting#sqlite to learn how to upgrade.\033[0m"
-    )
-
+    import sys
+    sys.stderr.write("pysqlite3-binary not installed. Please check requirements.txt\n")
+    raise
 import streamlit as st
 from langchain_community.document_loaders import WebBaseLoader
 
